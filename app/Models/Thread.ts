@@ -21,7 +21,7 @@ export default class Thread extends BaseModel {
   @column()
   public user_id: number
 
-  @column({ serializeAs: null })
+  @column({ serializeAs: null, prepare: (value) => JSON.stringify(value) })
   public tags: string[]
 
   @column()

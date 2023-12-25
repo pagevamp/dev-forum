@@ -7,8 +7,8 @@ export default class extends BaseSchema {
   public async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
-      table.integer('user_id').unsigned().references('user.id').onDelete('RESTRICT')
-      table.specificType('tags', 'STRING[]').notNullable()
+      table.integer('user_id').unsigned().references('users.id').onDelete('RESTRICT')
+      table.json('tags').notNullable()
       table.string('title')
       table.string('details', 3000)
       table.string('code_example', 3000).nullable()
@@ -19,8 +19,8 @@ export default class extends BaseSchema {
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
        */
-      table.timestamp('created_at', { useTz: true })
-      table.timestamp('updated_at', { useTz: true })
+      table.timestamp('created_at', { useTz: true }).notNullable()
+      table.timestamp('updated_at', { useTz: true }).notNullable()
     })
   }
 
