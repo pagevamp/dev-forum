@@ -31,3 +31,5 @@ Route.get('/posts', async ({ view }) => {
 Route.get('/posts/:id', async ({ view }) => {
   return view.render('detail')
 })
+
+Route.get('/users', 'UserController.index')

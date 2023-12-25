@@ -1,6 +1,11 @@
 import { DateTime } from 'luxon'
 import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
 
+export enum ThreadStatus {
+  OPEN; 'open',
+  CLOSE: 'closed'
+}
+
 export default class Thread extends BaseModel {
   @column({ isPrimary: true })
   public id: number
