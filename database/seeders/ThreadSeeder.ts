@@ -11,7 +11,6 @@ export default class ThreadSeeder extends BaseSeeder {
         details: 'Details of the first thread.',
         code_example: 'Code example for the first thread.',
         how_to_replicate: 'Steps to replicate the issue for the first thread.',
-        description: 'Description for the first thread.',
         status: ThreadStatus.OPEN,
       },
       {
@@ -21,7 +20,6 @@ export default class ThreadSeeder extends BaseSeeder {
         details: 'Details of the second thread.',
         code_example: 'Code example for the second thread.',
         how_to_replicate: 'Steps to replicate the issue for the second thread.',
-        description: 'Description for the second thread.',
         status: ThreadStatus.OPEN, // Use 'closed' or 'open' based on the enum values
       },
       // Add more threads as needed

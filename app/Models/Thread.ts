@@ -1,5 +1,14 @@
 import { DateTime } from 'luxon'
-import { BaseModel, BelongsTo, HasMany, belongsTo, column, hasMany } from '@ioc:Adonis/Lucid/Orm'
+import {
+  BaseModel,
+  BelongsTo,
+  HasMany,
+  HasOne,
+  belongsTo,
+  column,
+  hasMany,
+  hasOne,
+} from '@ioc:Adonis/Lucid/Orm'
 import User from './User'
 import Comment from './Comment'
 
@@ -20,6 +29,9 @@ export default class Thread extends BaseModel {
 
   @column()
   public user_id: number
+
+  @column()
+  public answer_id: number
 
   @column({ serializeAs: null, prepare: (value) => JSON.stringify(value) })
   public tags: string[]
@@ -47,4 +59,7 @@ export default class Thread extends BaseModel {
 
   @hasMany(() => Comment, { foreignKey: 'thread_id' })
   public comments: HasMany<typeof Comment>
+
+  @hasOne(() => Comment, { foreignKey: 'answer_id' })
+  public answer: HasOne<typeof Comment>
 }
