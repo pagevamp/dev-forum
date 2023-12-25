@@ -8,16 +8,6 @@ html, body {
   position: relative;
 }
 
-body:before {
-  content: '';
-  background: #5A45FF;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 6px;
-  position: absolute;
-}
-
 * {
   margin: 0;
   padding: 0;

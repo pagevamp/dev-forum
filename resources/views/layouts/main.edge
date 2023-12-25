@@ -1,20 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title }}</title>
-  @entryPointStyles('app')
-  @entryPointScripts('app')
-  @!section('heads')
+
+	{{--  Required Meta Tags  --}}
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	{{--  Page Title  --}}
+	<title>{{ title }}</title>
+
+	{{--  Entry Points  --}}
+	@entryPointStyles('app')
+	@entryPointScripts('app')
+
+	{{--  Linking Fonts  --}}
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+	{{--  Linking Stylesheet  --}}
+	<script src="https://cdn.tailwindcss.com"></script>
+
+	@!section('heads')
+
 </head>
-<body>
-  <header>
-    @!section('header')
-  </header>
-  <main>
-    @!section('body')
-  </main>
-  <footer>@!section('footer')</footer>
+<body class="font-sans bg-bodybg">
+
+	{{--  Page Header  --}}
+	<header role="banner" class="devforum__header py-5 border-b border-black">
+		<div class="container px-10 max-w-full mx-auto">
+			<div class="grid grid-cols-12 items-center">
+				<div class="col-span-6">
+					<h1 class="text-4xl font-semibold">
+						Developers Forum
+					</h1>
+				</div>
+				<div class="col-span-6">
+					<a href="#" class="bg-black text-white text-lg py-[10px] px-[18px] float-right">
+						Post a question
+					</a>
+				</div>
+			</div>
+		</div>
+	</header>
+	{{--  /Page Header  --}}
+
+<main>
+	@!section('body')
+</main>
+
+<footer>
+	@!section('footer')
+</footer>
+
+<script>
+
+	tailwind.config = {
+		theme: {
+			extend: {
+				colors: {
+					bodybg: '#FFFAF3',
+				}
+			},
+			fontFamily: {
+				'sans': ['Inter Tight', 'system-ui'],
+			}
+		}
+	}
+
+</script>
+
 </body>
 </html>
