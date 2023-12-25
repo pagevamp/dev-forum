@@ -3,25 +3,120 @@
 
 @section('body')
 
-  <section class="">
-  <div class="container px-10 max-w-full mx-auto">
-    <div class="px-4">
-      <div class="flex justify-between items-center mb-6">
-        <h2 class="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">Answers</h2>
-        <button class="bg-black text-white text-lg py-[10px] px-[18px] float-right comment-btn">Post comment</button>
-    </div>
-    <form class="mb-6 hidden comment-form">
-        <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-            <label class="sr-only">Your comment</label>
-            <textarea
-                class="w-[100%] h-[200px] bg-transparent rounded-none"
-                placeholder="Write a comment..." required></textarea>
-        </div>
-        <div>
-          <button type="submit" class="bg-black text-white text-lg py-[10px] px-[18px]">Post</button>
-          <button class="ms-4 comment-cancel">Cancel</button>
-        </div>
-    </form>
-  </div></div>
-</section>
+	<section class="py-20 bg-bodybg">
+		<div class="container max-w-[1300px] mx-auto px-6 lg:px-10">
+			<div class="post__header flex flex-row items-center mb-8">
+				<div class="basis-5/6">
+					<div class="mb-2">
+						#112
+					</div>
+					<h2 class="text-4xl font-semibold mb-3">
+						Nemo enim ipsam
+					</h2>
+					<div class="tags">
+						<ul class="flex flex-row gap-x-2">
+							<li>
+								<span class="bg-slate-100 py-2 px-4 text-sm rounded-2xl inline-block">Frontend</span>
+							</li>
+							<li>
+								<span class="bg-slate-100 py-2 px-4 text-sm rounded-2xl inline-block">Issue</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="basis-1/6">
+					<span class="bg-black text-white py-2 px-5 text-base inline-block float-right">
+						Solved
+					</span>
+				</div>
+				
+			</div>
+			<div class="flex flex-col gap-y-4">
+				<p>
+					Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut al Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut a lUt enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut al Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut al
+				</p>
+				<p>
+					Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut alUt enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut alUt enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut al Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut alUt enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut al
+				</p>
+				<p>
+					Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut alUt enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut alUt enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut al Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut alUt enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut al
+				</p>
+			</div>
+			<div class="mt-10 pt-10 border-t border-slate-300">
+				<div class="flex justify-between items-center mb-6">
+					<h2 class="text-lg lg:text-3xl font-semibold text-gray-900 dark:text-white">
+						Answers
+					</h2>
+					<button class="bg-black text-white text-lg py-[10px] px-[18px] float-right comment-btn hover:bg-zinc-700">
+						Post comment
+					</button>
+				</div>
+				<form class="hidden comment-form mb-12">
+					<div class="py-2 px-4 mb-4 bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+						<label class="sr-only">Your comment</label>
+						<textarea class="w-[100%] h-[200px] bg-transparent rounded-none focus:outline-0"
+						placeholder="Write a comment..." required></textarea>
+					</div>
+					<div>
+						<button type="submit" class="bg-black text-white text-lg py-[8px] px-[24px] hover:bg-zinc-700">Post</button>
+						<button class="ms-4 comment-cancel">Cancel</button>
+					</div>
+				</form>
+			</div>
+			<div class="flex flex-col gap-y-5">
+				<div class="flex flex-row">
+					<div class="basis-1/6">
+						<h2 class="text-slate-500 text-base mb-3">
+							23th Dec 2023
+						</h2>
+						<span class="bg-black text-white py-2 px-5 text-base inline-block">
+							Solution
+						</span>
+					</div>
+					<div class="basis-5/6">
+						<div class="bg-white p-6 rounded-lg">
+							<p>
+								Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut al Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut alUt enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut al
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="flex flex-row">
+					<div class="basis-1/6">
+						<h2 class="text-slate-500 text-base mb-3">
+							23th Dec 2023
+						</h2>
+						<span class="bg-black text-white py-2 px-5 text-base inline-block">
+							Solution
+						</span>
+					</div>
+					<div class="basis-5/6">
+						<div class="bg-white p-6 rounded-lg">
+							<p>
+								Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut al Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut alUt enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut al
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="flex flex-row">
+					<div class="basis-1/6">
+						<h2 class="text-slate-500 text-base mb-3">
+							23th Dec 2023
+						</h2>
+						<span class="text-base underline underline-offset-4 font-medium inline-block">
+							Mark as Solved
+						</span>
+					</div>
+					<div class="basis-5/6">
+						<div class="bg-white p-6 rounded-lg">
+							<p>
+								Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut al Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut alUt enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut al
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
 @end
