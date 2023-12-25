@@ -4,18 +4,18 @@ import Thread from 'App/Models/Thread'
 
 export default class ThreadController {
   public async index({ view }: HttpContextContract) {
-    const threads = Thread.all()
-    return view.render('threads', { threads })
+    const threads = await Thread.all()
+    return view.render('index', { threads })
   }
 
   public async search({ request, view }: HttpContextContract) {
-    const params = request.params()
-    const threads = Thread.query()
-      .where('title', 'ilike', `%${params.search}%`)
-      .orWhere('tags', 'ilike', `%${params.search}%`)
+    const searchParam = request.input('search')
+    const threads = await Thread.query()
+      .where('title', 'like', `%${searchParam}%`)
+      .orWhere('tags', 'like', `%${searchParam}%`)
       .select(['id', 'title', 'tags', 'details'])
 
-    return view.render('threads', { thread: threads?.[0] })
+    return view.render('index', { threads, search: searchParam })
   }
 
   public async show({ request, view }: HttpContextContract) {

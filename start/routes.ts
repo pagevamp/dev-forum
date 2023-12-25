@@ -20,9 +20,8 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.get('/', async ({ view }) => {
-  return view.render('index')
-})
+Route.get('/', 'ThreadController.index')
+Route.post('/search', 'ThreadController.search')
 
 Route.get('/fake-login', async ({ auth, response }) => {
   try {
@@ -45,9 +44,6 @@ Route.post('login', async ({ auth, request, response }) => {
   }
 })
 
-Route.get('/threads', async ({ view }) => {
-  return view.render('posts')
-})
 Route.get('/threads/:id', async ({ view }) => {
   return view.render('detail')
 })
@@ -55,7 +51,7 @@ Route.get('/threads/:id', async ({ view }) => {
 Route.group(() => {
   Route.post('/threads', 'ThreadController.create')
   Route.patch('/threads/:id', 'ThreadController.patch')
-  Route.post('/threads/:threadId/comments', 'CommentController.create')
+  Route.post('/threads/:tradeId/comments', 'CommentController.create')
   Route.patch('/comments/:id', 'CommentController.create')
 }).middleware('auth')
 
