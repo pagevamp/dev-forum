@@ -36,9 +36,6 @@ export default class Thread extends BaseModel {
   @column()
   public how_to_replicate: string | null
 
-  @column()
-  public description: string | null
-
   @column({
     consume: (value: string) => value as ThreadStatus,
     serialize: (value: ThreadStatus) => value,

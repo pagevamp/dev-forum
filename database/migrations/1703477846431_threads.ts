@@ -13,7 +13,6 @@ export default class extends BaseSchema {
       table.string('details', 3000)
       table.string('code_example', 3000).nullable()
       table.string('how_to_replicate', 3000).nullable()
-      table.string('description', 3000).nullable()
       table.enum('status', Object.values(ThreadStatus)).defaultTo(ThreadStatus.OPEN)
 
       /**
