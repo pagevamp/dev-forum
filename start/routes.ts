@@ -55,7 +55,7 @@ Route.get('/threads/:id', async ({ view }) => {
 Route.group(() => {
   Route.post('/threads', 'ThreadController.create')
   Route.patch('/threads/:id', 'ThreadController.patch')
-  Route.post('/comments', 'CommentController.create')
+  Route.post('/threads/:threadId/comments', 'CommentController.create')
   Route.patch('/comments/:id', 'CommentController.create')
 }).middleware('auth')
 
