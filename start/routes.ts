@@ -24,12 +24,39 @@ Route.get('/', async ({ view }) => {
   return view.render('welcome')
 })
 
-Route.get('/posts', async ({ view }) => {
-  return view.render('posts')
+Route.get('/fake-login', async ({ auth, response }) => {
+  try {
+    await auth.use('web').attempt('admin@outside.tech', 'secret')
+    response.redirect('/posts')
+  } catch {
+    return response.badRequest('Invalid credentials')
+  }
 })
 
-Route.get('/posts/:id', async ({ view }) => {
+Route.post('login', async ({ auth, request, response }) => {
+  const email = request.input('email')
+  const password = request.input('password')
+
+  try {
+    await auth.use('web').attempt(email, password)
+    response.redirect('/threads')
+  } catch {
+    return response.badRequest('Invalid credentials')
+  }
+})
+
+Route.get('/threads', async ({ view }) => {
+  return view.render('posts')
+})
+Route.get('/threads/:id', async ({ view }) => {
   return view.render('detail')
 })
+
+Route.group(() => {
+  Route.post('/threads', 'ThreadController.create')
+  Route.patch('/threads/:id', 'ThreadController.patch')
+  Route.post('/comments', 'CommentController.create')
+  Route.patch('/comments/:id', 'CommentController.create')
+}).middleware('auth')
 
 Route.get('/users', 'UserController.index')
