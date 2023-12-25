@@ -15,10 +15,12 @@ export default class CommentController {
 
     const payload = await request.validate({ schema: newCommentSchema })
 
-    return Comment.create({
+    await Comment.create({
       ...payload,
       thread_id: params.threadId,
       user_id: auth.user?.id as number,
     })
+
+    return response.redirect(`/threads/${params.threadid}`)
   }
 }
