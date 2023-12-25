@@ -1,6 +1,7 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import { schema } from '@ioc:Adonis/Core/Validator'
 import Thread from 'App/Models/Thread'
+import { parse } from 'date-fns'
 
 export default class ThreadController {
   public async index({ view }: HttpContextContract) {
@@ -22,7 +23,7 @@ export default class ThreadController {
     const params = request.params()
     const threads = await Thread.query().where('id', params.id).preload('comments')
 
-    return view.render('detail', { thread: threads?.[0] })
+    return view.render('detail', { thread: threads?.[0], dateFormatter: parse })
   }
 
   public async create({ request, auth, response }: HttpContextContract) {

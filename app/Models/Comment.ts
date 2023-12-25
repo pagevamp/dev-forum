@@ -2,6 +2,7 @@ import { DateTime } from 'luxon'
 import { BaseModel, BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
 import User from './User'
 import Thread from './Thread'
+import { format } from 'date-fns'
 
 export default class Comment extends BaseModel {
   @column({ isPrimary: true })
@@ -22,7 +23,7 @@ export default class Comment extends BaseModel {
   @belongsTo(() => Thread, { foreignKey: 'thread_id' })
   public thread: BelongsTo<typeof Thread>
 
-  @column.dateTime({ autoCreate: true })
+  @column.dateTime({ autoCreate: true, serialize: (value: string) => format(value, 'YYYY-MM-DD') })
   public createdAt: DateTime
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })

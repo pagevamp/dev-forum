@@ -8,39 +8,33 @@
 			<div class="post__header flex flex-row items-center mb-8">
 				<div class="basis-5/6">
 					<div class="mb-2">
-						#112
+						#{{thread.id}}
 					</div>
 					<h2 class="text-4xl font-semibold mb-3">
-						Nemo enim ipsam
+						{{thread.title}}
 					</h2>
 					<div class="tags">
 						<ul class="flex flex-row gap-x-2">
-							<li>
-								<span class="bg-slate-100 py-2 px-4 text-sm rounded-2xl inline-block">Frontend</span>
-							</li>
-							<li>
-								<span class="bg-slate-100 py-2 px-4 text-sm rounded-2xl inline-block">Issue</span>
-							</li>
+							@each(tag in thread.tags)
+								<li>
+									<span class="bg-slate-100 py-2 px-4 text-sm rounded-2xl inline-block">{{tag}}</span>
+								</li>
+							@end
 						</ul>
 					</div>
 				</div>
+				@if(thread.status === 'solved')								
 				<div class="basis-1/6">
 					<span class="bg-black text-white py-2 px-5 text-base inline-block float-right">
 						Solved
 					</span>
 				</div>
+				@end
+				
 				
 			</div>
 			<div class="flex flex-col gap-y-4">
-				<p>
-					Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut al Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut a lUt enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut al Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut al
-				</p>
-				<p>
-					Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut alUt enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut alUt enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut al Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut alUt enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut al
-				</p>
-				<p>
-					Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut alUt enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut alUt enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut al Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut alUt enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut al
-				</p>
+				{{thread.details}}
 			</div>
 			<div class="mt-10 pt-10 border-t border-slate-300">
 				<div class="flex justify-between items-center mb-6">
@@ -64,14 +58,21 @@
 				</form>
 			</div>
 			<div class="flex flex-col gap-y-5">
+				@each(comment in thread.comments)
 				<div class="flex flex-row">
 					<div class="basis-1/6">
 						<h2 class="text-slate-500 text-base mb-3">
-							23th Dec 2023
+							{{comment.createdAt}}
 						</h2>
-						<span class="bg-black text-white py-2 px-5 text-base inline-block">
-							Solution
-						</span>
+							@if(thread.answer_id === comment.id)
+							<span class="bg-black text-white py-2 px-5 text-base inline-block">
+								Solved
+							</span>
+							@elseif(!thread.answer_id)
+							<span class="text-base underline underline-offset-4 font-medium inline-block">
+								Mark as solution
+							</span>
+							@end
 					</div>
 					<div class="basis-5/6">
 						<div class="bg-white p-6 rounded-lg">
@@ -81,40 +82,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="flex flex-row">
-					<div class="basis-1/6">
-						<h2 class="text-slate-500 text-base mb-3">
-							23th Dec 2023
-						</h2>
-						<span class="bg-black text-white py-2 px-5 text-base inline-block">
-							Solution
-						</span>
-					</div>
-					<div class="basis-5/6">
-						<div class="bg-white p-6 rounded-lg">
-							<p>
-								Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut al Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut alUt enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut al
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="flex flex-row">
-					<div class="basis-1/6">
-						<h2 class="text-slate-500 text-base mb-3">
-							23th Dec 2023
-						</h2>
-						<span class="text-base underline underline-offset-4 font-medium inline-block">
-							Mark as Solved
-						</span>
-					</div>
-					<div class="basis-5/6">
-						<div class="bg-white p-6 rounded-lg">
-							<p>
-								Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut al Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut alUt enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut al
-							</p>
-						</div>
-					</div>
-				</div>
+				@end
 			</div>
 		</div>
 	</section>

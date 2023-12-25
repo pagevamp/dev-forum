@@ -21,7 +21,7 @@
 import Route from '@ioc:Adonis/Core/Route'
 
 Route.get('/', 'ThreadController.index')
-Route.post('/search', 'ThreadController.search')
+Route.post('/searchthread/1', 'ThreadController.search')
 
 Route.get('/fake-login', async ({ auth, response }) => {
   try {
@@ -44,9 +44,7 @@ Route.post('login', async ({ auth, request, response }) => {
   }
 })
 
-Route.get('/threads/:id', async ({ view }) => {
-  return view.render('detail')
-})
+Route.get('/threads/:id', 'ThreadController.show')
 
 Route.group(() => {
   Route.post('/threads', 'ThreadController.create')

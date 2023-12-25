@@ -67,6 +67,7 @@
     "@adonisjs/session": "^6.2.0",
     "@adonisjs/shield": "^7.0.0",
     "@adonisjs/view": "^6.1.0",
+    "date-fns": "^3.0.6",
     "jquery": "^3.7.1",
     "luxon": "^3.4.4",
     "mysql2": "^3.6.5",

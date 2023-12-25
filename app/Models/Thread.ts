@@ -45,6 +45,6 @@ export default class Thread extends BaseModel {
   @belongsTo(() => User, { foreignKey: 'user_id' })
   public user: BelongsTo<typeof User>
 
-  @hasMany(() => Comment)
+  @hasMany(() => Comment, { foreignKey: 'thread_id' })
   public comments: HasMany<typeof Comment>
 }
