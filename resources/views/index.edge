@@ -1,5 +1,5 @@
 @layout('layouts/main')
-@set('title', 'Developers Forum | Homepage')
+@set('title', 'The Outside Forums | Homepage')
 
 @section('body')
 
@@ -23,7 +23,7 @@
 						<h2 class="text-3xl font-medium mb-2">
 							{{ thread.title }}
 						</h2>
-						<div class="tags mb-5">
+						<div class="tag-list mb-5">
 							<ul class="flex flex-row gap-x-2">
 								@each(tag in thread.tags)
 									<li>

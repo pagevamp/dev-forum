@@ -47,6 +47,9 @@ Route.post('login', async ({ auth, request, response }) => {
 Route.get('/threads/:id', async ({ view }) => {
   return view.render('detail')
 })
+Route.get('/new-threads', async ({ view }) => {
+  return view.render('new-threads')
+})
 
 Route.group(() => {
   Route.post('/threads', 'ThreadController.create')
