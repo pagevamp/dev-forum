@@ -35,9 +35,55 @@ main {
 }
 
 p {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 main ul {
-  list-style: none;
+    list-style: none;
+}
+
+input.new-thread-tags {
+    border: none;
+    box-shadow: none;
+    width: auto;
+    margin: 0;
+    padding: 0;
+}
+
+input.new-thread-tags:focus {
+    outline:none;
+    background: transparent;
+}
+
+.tag-cloud {
+    display:block;
+    padding: 15px 15px;
+    margin: .25em 0;
+    background: #FFF;
+    border: solid 1px #999;
+    border-radius: 2px;
+}
+
+a.close {
+    display: block;
+    float: right;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 1em;
+    height: 1em;
+    margin: .125em 0 0 .5em;
+    text-indent: -999em;
+}
+
+a.close:before {
+    display:block;
+    float: left;
+    content: "\2716";
+    font-size: 1em;
+    font-weight: normal;
+    text-indent: 0;
+    text-shadow: 0 -1px 0 #123;
+    line-height: 1em;
+    color: black;
+    transform: translateY(1px);
 }

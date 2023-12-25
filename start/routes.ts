@@ -44,7 +44,11 @@ Route.post('login', async ({ auth, request, response }) => {
   }
 })
 
-Route.get('/threads/:id', async ({ view }) => {
+Route.get('/new-threads', async ({ view }) => {
+  return view.render('new-threads')
+})
+
+Route.get('/posts/:id', async ({ view }) => {
   return view.render('detail')
 })
 

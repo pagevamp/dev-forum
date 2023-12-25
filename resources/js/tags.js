@@ -22,7 +22,7 @@ export const tags = () => {
                   var addTag = function(value) {
                       value = value.replace(clean, '');
                       if (value !== '') {
-                          var tag = $('<div class="tag"><span>' + value + '</span></div>');
+                          var tag = $('<div class="tag bg-slate-100 py-2 px-4 text-sm rounded-2xl inline-block me-2"><span>' + value + '</span></div>');
                           var del = $('<a href="#" class="close">Delete</a>');
       
                           del.click(function() {
