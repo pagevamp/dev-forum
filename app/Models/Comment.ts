@@ -23,7 +23,7 @@ export default class Comment extends BaseModel {
   @belongsTo(() => Thread, { foreignKey: 'thread_id' })
   public thread: BelongsTo<typeof Thread>
 
-  @column.dateTime({ autoCreate: true, serialize: (value: string) => format(value, 'YYYY-MM-DD') })
+  @column.dateTime({ autoCreate: true, consume: (value: string) => format(value, 'Lo LLL yyyy') })
   public createdAt: DateTime
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })

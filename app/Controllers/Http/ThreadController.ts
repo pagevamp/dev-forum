@@ -19,11 +19,15 @@ export default class ThreadController {
     return view.render('index', { threads, search: searchParam })
   }
 
-  public async show({ request, view }: HttpContextContract) {
+  public async show({ request, view, response }: HttpContextContract) {
     const params = request.params()
     const threads = await Thread.query().where('id', params.id).preload('comments')
+    const thread = threads?.[0]
+    if (!thread) {
+      return response.notFound()
+    }
 
-    return view.render('detail', { thread: threads?.[0], dateFormatter: parse })
+    return view.render('detail', { thread })
   }
 
   public async create({ request, auth, response }: HttpContextContract) {
