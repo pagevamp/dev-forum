@@ -45,13 +45,14 @@ Route.post('login', async ({ auth, request, response }) => {
   }
 })
 
+Route.get('/threads', async ({ view }) => {
+  return view.render('posts')
+})
+Route.get('/threads/:id', async ({ view }) => {
+  return view.render('detail')
+})
+
 Route.group(() => {
-  Route.get('/threads', async ({ view }) => {
-    return view.render('posts')
-  })
-  Route.get('/threads/:id', async ({ view }) => {
-    return view.render('detail')
-  })
   Route.post('/threads', 'ThreadController.create')
   Route.patch('/threads/:id', 'ThreadController.patch')
   Route.post('/comments', 'CommentController.create')
